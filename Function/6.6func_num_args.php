@@ -19,4 +19,15 @@ function mean()
     }
 }
 
-mean(1,2,3,4);
+mean(1, 2, 3);
+
+function add()
+{
+    $sum = 0;
+    foreach (func_get_args() as $vo) {
+        $sum += $vo;
+    }
+    return $sum;
+}
+
+var_dump('sum is:' . add(1, 2, 3, 4, 5));
