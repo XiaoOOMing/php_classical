@@ -72,7 +72,7 @@ function pageFooter($page, $displayEditLink)
     ?>
     <hr/>
     <em>Last Modifield: <?php echo $lastModifield; ?></em>
-    <?php echo $editLink; ?> - <a href="<?php echo $_SERVER['SCRIPT_NAME']; ?>">Home</a>
+    <?php echo $editLink; ?> - <a href="<?php echo $_SERVER['SCRIPT_NAME'] . '?page=' . $page . '&edit'; ?>">edit</a>
     </body>
     </html>
     <?php
