@@ -51,6 +51,10 @@ function pageheader($page)
         <title>Wiki: <?php echo htmlentities($page); ?></title>
     </head>
     <body>
+    <form action="8.20Tiny_Wiki.php" method="get">
+        <input type="text" name="page">
+        <input type="submit" value="Search">
+    </form>
     <h1><?php echo htmlentities($page); ?></h1>
     <hr/>
     <?php
@@ -60,7 +64,7 @@ function pageFooter($page, $displayEditLink)
 {
     $timestamp = @filemtime(pageToFile($page));
     if ($timestamp) {
-        $lastModifield = strftime('%C', $timestamp);
+        $lastModifield = date('Y-m-d H:i:s', $timestamp);
     } else {
         $lastModifield = 'Never';
     }
