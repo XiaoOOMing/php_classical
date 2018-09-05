@@ -12,7 +12,8 @@ interface NameInterface
     public function getName();
 }
 
-class Book implements NameInterface
+// 最佳实现
+trait NameChanger
 {
     private $name;
 
@@ -25,6 +26,12 @@ class Book implements NameInterface
     {
         return $this->name;
     }
+}
+
+// 利用trait实现了接口
+class Book implements NameInterface
+{
+    use NameChanger;
 }
 
 $book = new Book();
