@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="cropper/cropper.css">
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="cropper.css">
+</head>
+<body>
+<div class="cover"></div>
+<div class="cropper-wrapper">
+    <div class="title">
+        <span>Change Background</span>
+        <a href="javascript:;" class="r sub-btn cropper-select">
+            Select Image
+            <input type="file" class="cropper-input">
+        </a>
+    </div>
+    <div class="content">
+        <img id="image" src="001.jpg" style="max-width: 100%">
+    </div>
+    <div class="submit-wrapper">
+        <a href="javascript:;" class="sub-btn cropper-submit">Submit</a>
+    </div>
+</div>
+<script src="jquery-3.2.1.min.js"></script>
+<script src="cropper/cropper.js"></script>
+<script>
+    var $image = $('#image');
+
+    $image.cropper({
+        aspectRatio: 16 / 5,
+        viewMode: 1
+    });
+
+    // Get the Cropper.js instance after initialized
+    var cropper = $image.data('cropper');
+
+    $('.cropper-input').change(function () {
+        var file_profile = $(this)[0].files[0];
+        cropper.replace(window.URL.createObjectURL(file_profile))
+    });
+
+    $('.cropper-submit').click(function () {
+        cropper.getCroppedCanvas().toBlob((blob) => {
+            const formData = new FormData();
+            formData.append('croppedImage', blob);
+            $.ajax('./upload.php', {
+                method: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success() {
+                    console.log('Upload success');
+                },
+                error() {
+                    console.log('Upload error');
+                },
+            });
+        });
+    })
+</script>
+</body>
+</html>
