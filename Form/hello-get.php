@@ -5,5 +5,8 @@
     <p>What's your age?</p>
     <input type="text" name="age">
     <br>
+    <p>What's your email?</p>
+    <input type="text" name="email">
+    <br>
     <input type="submit" value="Say hello">
 </form>

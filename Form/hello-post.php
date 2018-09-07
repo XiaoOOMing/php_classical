@@ -11,7 +11,12 @@ if (!filter_has_var(INPUT_POST, 'first_name') || $_POST['first_name'] == '') {
         if (!filter_input(INPUT_POST, 'age', FILTER_VALIDATE_INT)) {
             echo 'Submitted age is invalid!';
         } else {
-            echo 'Hello ' . $_POST['first_name'] . ', your age is ' . $_POST['age'] . '.';
+            // 验证Email地址
+            if (!filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)) {
+                echo 'Submitted email address is invalid!';
+            } else {
+                echo 'Hello ' . $_POST['first_name'] . ', your age is ' . $_POST['age'] . ', your email is ' . $_POST['email'] . '.';
+            }
         }
     }
 }
