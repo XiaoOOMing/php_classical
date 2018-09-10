@@ -3,11 +3,11 @@
 class DB
 {
     // 数据库配置
-    public static $host = '127.0.0.1';
-    public static $user = 'root';
-    public static $password = 'root';
-    public static $db_name = 'deeprocess';
-    public static $port = '3306';
+    private static $host = '127.0.0.1';
+    private static $user = 'root';
+    private static $password = 'root';
+    private static $db_name = 'deeprocess';
+    private static $port = '3306';
 
     // 连接句柄
     private static $db;
