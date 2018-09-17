@@ -23,3 +23,5 @@ var_dump(rand_str());
 var_dump(rand_str(16));
 var_dump(rand_str(12));
 var_dump(rand_str(-1));
+var_dump(rand_str(16, '.-'));
+var_dump(rand_str(16, '.-'));

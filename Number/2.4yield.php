@@ -20,6 +20,6 @@ function xsquare($start, $stop)
     }
 }
 
-foreach (xsquare(1, 9) as $key => $val) {
+foreach (xsquare(9, 1) as $key => $val) {
     var_dump($key . '=>' . $val);
 }
