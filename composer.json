@@ -1,0 +1,12 @@
+{
+    "name": "meckey_shu/php_classical",
+    "authors": [
+        {
+            "name": "XiaoOOMing",
+            "email": "13261675306@163.com"
+        }
+    ],
+    "require": {
+        "jaeger/querylist": "^4.0"
+    }
+}
